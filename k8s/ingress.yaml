@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: startberlin-ingress
+spec:
+  rules:
+  - host: startberlin.local  # jede Domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: startberlin-service  # Name letzte Service
+            port:
+              number: 80

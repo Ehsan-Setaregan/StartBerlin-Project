@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: startberlin-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: startberlin    # Verbindung zu Label mit Lable (startberlin)
+  ports:
+    - protocol: TCP
+      port: 80          # Eingang
+      targetPort: 5000  # Ausgang

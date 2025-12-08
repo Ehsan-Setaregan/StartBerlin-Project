@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment  # Berief: Bewerbung eines Containers
+metadata:
+  name: startberlin-deployment  # name dieser Aufgabe
+spec:
+  replicas: 3  # Anzahl des Koppieren
+  selector:
+    matchLabels:
+      app: startberlin  #Lable für kennenlernen 
+  template:  # Algoritm für Build eine (Pod)
+    metadata:
+      labels:
+        app: startberlin
+    spec:
+      containers:
+      - name: startberlin-container
+        image: ehsansetaregan/startberlin-v1:latest  # Adresse Image in Docker
+        ports:
+        - containerPort: 5000  # Port 
